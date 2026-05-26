@@ -1,8 +1,9 @@
 
 CREATE TABLE sslc_result (
     reg_no integer PRIMARY KEY,
-    class varchar(2),
-    name varchar(30),
+    class varchar(1),
+    first_name varchar(15),
+    last_name varchar(15),
     tamil integer,
     english integer,
     maths integer,
@@ -13,8 +14,9 @@ CREATE TABLE sslc_result (
 
 CREATE TABLE hsc_result_cs (
     reg_no integer PRIMARY KEY,
-    class varchar(2),
-    name varchar(30),
+    class varchar(1),
+    first_name varchar(15),
+    last_name varchar(15),
     lang integer,
     eng integer,
     phy integer,
@@ -27,8 +29,9 @@ CREATE TABLE hsc_result_cs (
 
 CREATE TABLE hsc_result_bio (
     reg_no integer PRIMARY KEY,
-    class varchar(2),
-    name varchar(30),
+    class varchar(1),
+    first_name varchar(15),
+    last_name varchar(15),
     lang integer,
     eng integer,
     phy integer,
