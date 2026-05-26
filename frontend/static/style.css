@@ -9,6 +9,10 @@ body{
     background-color: rgb(240, 240, 240);
 }
 
+a{
+    -webkit-tap-highlight-color: transparent;
+}
+
 a:focus{
     outline: 0;
 }
