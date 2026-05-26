@@ -8,12 +8,7 @@
     <link rel="stylesheet" href="{{ url_for('static',filename='result.css') }}">
 </head>
 <body>
-    <div class="header">
-        <div class="logo"><a href="#"><img src="{{ url_for('static',filename='logo.png') }}" id="logo"></a></div>
-        <div class="header_content">
-            <div class="header_text_1">SVGV MATRICULATION HIGHER SECONDARY SCHOOL</div>
-        </div>
-    </div>
+    {{ header_div | safe }}
     <div class="content">
         <div class="container_1">
             <div id="result_container_head">HSE(+2) EXAMINATION RESULTS MARCH 2026</div>
