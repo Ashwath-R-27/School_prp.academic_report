@@ -8,7 +8,7 @@ CREATE TABLE sslc_result (
     maths integer,
     science integer,
     social integer,
-    total integer
+    total integer GENERATED ALWAYS AS (tamil + english + maths + science + social) STORED,
 );
 
 CREATE TABLE hsc_result_cs (
@@ -21,7 +21,7 @@ CREATE TABLE hsc_result_cs (
     chem integer,
     csc integer,
     maths integer,
-    total integer,
+    total integer GENERATED ALWAYS AS (lang + eng + phy + chem + csc + maths) STORED,
     cut_off real
 );
 
@@ -35,6 +35,6 @@ CREATE TABLE hsc_result_bio (
     chem integer,
     bio integer,
     maths integer,
-    total integer,
+    total integer GENERATED ALWAYS AS (lang + eng + phy + chem + bio + maths) STORED,
     cut_off real
 );
