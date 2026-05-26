@@ -1,0 +1,41 @@
+DATABASE = examresults
+
+CREATE table sslc_result(
+    reg_no int PRIMARY KEY,
+    class varchar(2),
+    name varchar(30),
+    tamil int,
+    english int,
+    maths int,
+    science int,
+    social int,
+    total int
+);
+
+CREATE table hsc_result_cs(
+    reg_no int PRIMARY KEY,
+    class varchar(2),
+    name varchar(30),
+    lang int,
+    eng int,
+    phy int,
+    chem int,
+    csc int,
+    maths int,
+    total int,
+    cut_off float
+);
+
+CREATE table hsc_result_bio(
+    reg_no int PRIMARY KEY,
+    class varchar(2),
+    name varchar(30),
+    lang int,
+    eng int,
+    phy int,
+    chem int,
+    bio int,
+    maths int,
+    total int,
+    cut_off float
+);

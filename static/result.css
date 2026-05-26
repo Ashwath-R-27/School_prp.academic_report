@@ -1,0 +1,139 @@
+/*body{
+    padding-top: 105px;
+}
+
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1050;
+}*/
+
+.stud_appeared{
+    margin-top: 20px;
+    display: grid;
+    place-items: center;
+}
+
+.stud_appeared_body{
+    border: 2px solid #215e23;
+    padding: 1% 2%;
+}
+
+#stud_appeared_text1, #stud_appeared_text2{
+    color: #215e23;
+    font-weight: bold;
+    margin: 5px 0;
+    font-size: clamp(12px, 4vw, 19px);
+}
+
+.top_scorers, .top_marks, .comp_container{
+    padding-top: 2%;
+}
+
+#top_scorers_header, #top_marks_header, #comp_header{
+    text-align: center;
+    word-spacing: 3px;
+    font-weight: bold;
+    font-size: clamp(12px, 4vw, 19px);
+    background: linear-gradient(to bottom left, #84cc16, #16a34a, #0f766e);
+    color: white;
+    padding: 7px 0;
+    text-shadow: 1px 1px black;
+    border-top: 1px solid #815744;
+    border-bottom: 1px solid #815744;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.6);
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.6);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.6);
+}
+
+.top_scorers_table, .top_marks_table{
+    display: grid;
+    place-items: center;
+    padding: 2%;
+}
+
+.top_scorers_table table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.top_marks_table table{
+    width: 80%;
+    border-collapse: collapse;
+}
+
+.top_scorers_table table tr, .top_marks_table table tr {
+    height: 45px;
+}
+
+.top_scorers_table table th {
+    background: linear-gradient(to bottom, #06b6d4, #2563eb, #6366f1);
+    color: white;
+}
+
+.top_marks_table table th {
+    background: linear-gradient(to bottom, #db2777, #ef4444, #f97316);
+    color: white;
+}
+
+.top_scorers_table table th, .top_scorers_table table td, .top_marks_table table th, .top_marks_table table td{
+    border: 1px solid rgb(97, 97, 97);
+    text-align: center;
+    font-size: clamp(9px, 4vw, 15px);
+    font-weight: bold;
+}
+
+.top_scorers_table table td:last-child{
+    width: 10%;
+}
+
+.top_marks_table table td:nth-last-child(2), .top_marks_table table td:nth-last-child(1){
+    width: 20%;
+}
+
+.top_scorers_table table td button{
+    padding: 7px;
+    font-weight: bold;
+    background-color: #0369a1;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.top_scorers_table table td button:hover{
+    background-color: #082f49;
+}
+
+.comp_container_body{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+#comp_button{
+    padding: 5%;
+    font-weight: bold;
+    background: linear-gradient(to right, #3b82f6, #6366f1, #db2777);
+    word-spacing: 3px;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    font-size: clamp(5px, 4vw, 17px);
+    border-radius: 15px;
+    transition: transform 0.4s ease;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.6);
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.6);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.6);
+    display: grid;
+}
+
+#comp_button:hover{
+    transform: translateY(-3px) scale(1.01);
+    box-shadow: 0px 0px 10px 8px rgba(10, 255, 173, 0.281);
+}
