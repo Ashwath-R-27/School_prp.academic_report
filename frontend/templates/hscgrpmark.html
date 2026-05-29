@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HSE(+2) Results</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='markpg.css') }}">
+</head>
+<body>
+    {{ header_div | safe }}
+    <div class="content">
+        <div class="grp_container">
+            <div id="grp_header">COMPUTER SCIENCE</div>
+            <div class="table-box">
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr><th>RANK</th><th>CLASS</th><th>NAME</th><th>LANG</th><th>ENG</th><th>PHY</th><th>CHEM</th><th>COMP</th><th>MATHS</th><th>TOTAL</th><th>CUT OFF</th></tr>
+                        </thead>
+                        <tbody>{% for i in records %}
+                            <tr><td>{{i[0]}}</td><td>{{ i[2] }}</td><td>{{ i[3] }}</td><td>{{ i[4] }}</td><td>{{ i[5] }}</td><td>{{ i[6] }}</td><td>{{ i[7] }}</td><td>{{ i[8] }}</td><td>{{ i[9] }}</td><td>{{ i[10] }}</td><td>{{ i[11] }}</td></tr>{% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <hr>
+        </div>
+    </div>
+</body>
+</html>
