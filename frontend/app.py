@@ -40,6 +40,11 @@ def hscmark():
     header=header_div()
     return render_template("hscmarkpg.html",header_div=header)
 
+@app.route("/SSLC_2026")
+def sslcmark():
+    header=header_div()
+    return render_template("sslcmarkpg.html",header_div=header)
+
 @app.route("/HSC_2026/Marks/Group")
 def hscgrpwisemarks():
     datas=[]
@@ -56,6 +61,19 @@ def hscgrpwisemarks():
     db.close()
     return render_template("hscgrpmark.html",header_div=header,records=datas,groups=groups,grpheads=grpheads,length=len(groups))
 
+@app.route("/SSLC_2026/Marks")
+def sslcclassmark():
+    header=header_div()
+    cls=['A','B','C','D','E']
+    datas=[]
+    db=get_db()
+    cursor=db.cursor()
+    for i in cls:
+        cursor.execute(f"SELECT DENSE_RANK() OVER (ORDER BY total DESC) AS rank_no, reg_no, class, name, tamil, english, maths, science, social, total FROM sslc_result WHERE class='{i}'")
+        result=cursor.fetchall()
+        datas.append(result)
+    db.close()
+    return render_template("sslcclassmarkpg.html",header_div=header,records=datas,cls=cls,length=len(cls))
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0",port=5000,debug=True)

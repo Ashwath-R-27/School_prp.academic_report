@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSLC Results</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='markpg.css') }}">
+</head>
+<body>
+    {{ header_div | safe }}
+    <div class="content">{% for i in range(0,length) %}
+        <div class="grp_container">
+            <div id="grp_header">X - {{ cls[i] }}</div>
+            <div class="table-box">
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr><th>RANK</th><th>CLASS</th><th>NAME</th><th>TAMIL</th><th>ENGLISH</th><th>MATHS</th><th>SCIENCE</th><th>SOCIAL</th><th>TOTAL</th></tr>
+                        </thead>
+                        <tbody>{% if records[i] %}{% for j in records[i] %}
+                            <tr><td>{{ j[0] }}</td><td>{{ j[2] }}</td><td>{{ j[3] }}</td><td>{{ j[4] }}</td><td>{{ j[5] }}</td><td>{{ j[6] }}</td><td>{{ j[7] }}</td><td>{{ j[8] }}</td><td>{{ j[9] }}</td></tr>{% endfor %}{% else %}
+                            <tr><td colspan="11">No Data available</td></tr>{% endif %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <hr>
+        </div>{% endfor %}
+    </div>
+</body>
+</html>
