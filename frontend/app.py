@@ -15,6 +15,19 @@ def header_div():
     </div>"""
     return header
 
+def hscgroups():
+    db=get_db()
+    cursor=db.cursor()
+    cursor.execute("SELECT groupname,groupcode FROM hsc_groups")
+    groups=cursor.fetchall()
+    cursor.execute("SELECT head_1,head_2,head_3,head_4 FROM hsc_groups")
+    grpheads=cursor.fetchall()
+    grpdtls=[]
+    grpdtls.append(groups)
+    grpdtls.append(grpheads)
+    db.close()
+    return grpdtls
+
 @app.route("/")
 def first():
     header=header_div()
@@ -29,13 +42,19 @@ def hscmark():
 
 @app.route("/HSC_2026/Marks/Group")
 def hscgrpwisemarks():
+    datas=[]
     header=header_div()
     db=get_db()
+    grpdtls=hscgroups()
+    groups=grpdtls[0]
+    grpheads=grpdtls[1]
     cursor=db.cursor()
-    cursor.execute("SELECT DENSE_RANK() OVER (ORDER BY total DESC) AS rank_no, reg_no, class, name, lang, eng, phy, chem, csc, maths, total, cut_off FROM hsc_result_cs")
-    data=cursor.fetchall()
+    for i in range(0,len(groups)):
+        cursor.execute(f"SELECT DENSE_RANK() OVER (ORDER BY total DESC) AS rank_no, reg_no, class, name, lang, eng, phy, chem, {groups[i][1]}, maths, total, cut_off FROM hsc_result_{groups[i][1]}")
+        data=cursor.fetchall()
+        datas.append(data)
     db.close()
-    return render_template("hscgrpmark.html",header_div=header,records=data)
+    return render_template("hscgrpmark.html",header_div=header,records=datas,groups=groups,grpheads=grpheads,length=len(groups))
 
 
 if __name__ == "__main__":

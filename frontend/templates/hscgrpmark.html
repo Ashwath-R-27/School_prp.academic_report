@@ -9,24 +9,24 @@
 </head>
 <body>
     {{ header_div | safe }}
-    <div class="content">
+    <div class="content">{% for i in range(0,length) %}
         <div class="grp_container">
-            <div id="grp_header">COMPUTER SCIENCE</div>
+            <div id="grp_header">{{ groups[i][0] }}</div>
             <div class="table-box">
                 <div class="table-container">
                     <table>
                         <thead>
-                            <tr><th>RANK</th><th>CLASS</th><th>NAME</th><th>LANG</th><th>ENG</th><th>PHY</th><th>CHEM</th><th>COMP</th><th>MATHS</th><th>TOTAL</th><th>CUT OFF</th></tr>
+                            <tr><th>RANK</th><th>CLASS</th><th>NAME</th><th>LANG</th><th>ENG</th><th>{{ grpheads[i][0] }}</th><th>{{ grpheads[i][1] }}</th><th>{{ grpheads[i][2] }}</th><th>{{ grpheads[i][3] }}</th><th>TOTAL</th><th>CUT OFF</th></tr>
                         </thead>
-                        <tbody>{% if records %}{% for i in records %}
-                            <tr><td>{{i[0]}}</td><td>{{ i[2] }}</td><td>{{ i[3] }}</td><td>{{ i[4] }}</td><td>{{ i[5] }}</td><td>{{ i[6] }}</td><td>{{ i[7] }}</td><td>{{ i[8] }}</td><td>{{ i[9] }}</td><td>{{ i[10] }}</td><td>{{ i[11] }}</td></tr>{% endfor %}{% else %}
+                        <tbody>{% if records[i] %}{% for j in records[i] %}
+                            <tr><td>{{j[0]}}</td><td>{{ j[2] }}</td><td>{{ j[3] }}</td><td>{{ j[4] }}</td><td>{{ j[5] }}</td><td>{{ j[6] }}</td><td>{{ j[7] }}</td><td>{{ j[8] }}</td><td>{{ j[9] }}</td><td>{{ j[10] }}</td><td>{{ j[11] }}</td></tr>{% endfor %}{% else %}
                             <tr><td colspan="11">No Data available</td></tr>{% endif %}
                         </tbody>
                     </table>
                 </div>
             </div>
             <hr>
-        </div>
+        </div>{% endfor %}
     </div>
 </body>
 </html>

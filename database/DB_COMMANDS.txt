@@ -12,7 +12,7 @@ CREATE table sslc_result(
     total int
 );
 
-CREATE table hsc_result_cs(
+CREATE table hsc_result_csc(
     reg_no int PRIMARY KEY,
     class varchar(2),
     name varchar(30),
@@ -38,4 +38,14 @@ CREATE table hsc_result_bio(
     maths int,
     total int,
     cut_off float
+);
+
+CREATE table hsc_groups(
+    groupno VARCHAR(3),
+    groupname VARCHAR(50),
+    groupcode VARCHAR(10),
+    head_1 VARCHAR(10),
+    head_2 VARCHAR(10),
+    head_3 VARCHAR(10),
+    head_4 VARCHAR(10)
 );
